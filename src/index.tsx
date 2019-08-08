@@ -1,20 +1,8 @@
-import React, { ReducerAction } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import { Provider } from 'react-redux';
-import { createStore, Action } from 'redux';
-
-function playlist(
-  state: string[] = [],
-  action: Action & { payload: string }
-) {
-  if (action.type === 'ADD_TRACK') {
-    return [...state, action.payload];
-  }
-  return state;
-}
-
-const store = createStore(playlist);
+import { store } from './store/store';
 
 ReactDOM.render(
   <Provider store={store}>

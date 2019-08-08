@@ -1,5 +1,5 @@
 parser: typescript
-printWidth: 60
+printWidth: 100
 tabWidht: 2
 # useTabs: true
 semi: true
