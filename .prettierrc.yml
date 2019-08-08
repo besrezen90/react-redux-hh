@@ -1,0 +1,7 @@
+parser: typescript
+printWidth: 60
+tabWidht: 2
+useTabs: true
+semi: true
+singleQuote: true
+jsxBracketSameLine: true
