@@ -1,7 +1,24 @@
-/// <reference types="vss-web-extension-sdk" />
+import React, { ReducerAction } from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import { Provider } from 'react-redux';
+import { createStore, Action } from 'redux';
 
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/App";
+function playlist(
+  state: string[] = [],
+  action: Action & { payload: string }
+) {
+  if (action.type === 'ADD_TRACK') {
+    return [...state, action.payload];
+  }
+  return state;
+}
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const store = createStore(playlist);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
