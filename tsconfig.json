@@ -9,7 +9,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "types": ["vss-web-extension-sdk"]
+    "types": ["node"]
   },
   "include": ["./src/**/*", "./externals.d.ts"]
 }

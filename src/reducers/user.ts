@@ -1,14 +1,16 @@
-import { createStore, Action } from 'redux';
+import { Action } from 'redux';
+import { ON_LOGIN } from '../constants/ActionTypes';
+import { IUser } from '../types';
 
-export interface IUser {
-  login: string;
-  password: string;
-}
+const initialState: IUser = { login: '', password: '' };
 
-export function user(user: IUser = { login: '', password: '' }, action: Action & { user: IUser }) {
-  if (action.type === 'ON_LOGIN') {
-    const { login, password } = action.user;
-    return { ...user, login, password };
+export function user(user: IUser = initialState, action: Action & { user: IUser }) {
+  switch (action.type) {
+    case ON_LOGIN:
+      const { login, password } = action.user;
+      return { ...user, login, password };
+
+    default:
+      return user;
   }
-  return user;
 }

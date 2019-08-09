@@ -1,8 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import App from './components/App';
+import reducer from './reducers';
+
+const store = createStore(
+  reducer,
+  composeWithDevTools()
+  // applyMiddleware(...middleware)
+  // other store enhancers if any
+);
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,54 +1,23 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import style from './App.less';
-import { connect } from 'react-redux';
-import { IUser } from '../reducers/user';
+import Login from './Login/Login';
+import Home from './Home/Home';
 
-interface IProps {
-  data: { user: IUser };
-  onClickButton: (login: string, password: string) => void;
-}
-
+interface IProps {}
 interface IState {}
 
-class App extends Component<IProps, IState> {
-  login = React.createRef<HTMLInputElement>();
-  passsword = React.createRef<HTMLInputElement>();
-
-  onClick = () => {
-    if (this.login.current && this.passsword.current) {
-      this.props.onClickButton(this.login.current.value, this.passsword.current.value);
-    }
-  };
-
+export default class App extends Component<IProps, IState> {
   render() {
-    const { login, password } = this.props.data.user;
-
-    const loginWindow = (
-      <React.Fragment>
-        <input ref={this.login} type="text" placeholder="Введите логин"></input>
-        <input ref={this.passsword} type="password" placeholder="Введите пароль"></input>
-        <button onClick={this.onClick}>Вход</button>
-      </React.Fragment>
-    );
-
     return (
-      <div className={style.app}>
-        {login && password ? <div>Вы зашли как {login}</div> : loginWindow}
-      </div>
+      <Router basename={process.env.PUBLIC_URL}>
+        <div className={style.app}>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={Home} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
-
-export default connect(
-  store => ({
-    data: store
-  }),
-  dispatch => ({
-    onClickButton: (login: string, password: string) => {
-      dispatch({
-        type: 'ON_LOGIN',
-        user: { login, password }
-      });
-    }
-  })
-)(App);
