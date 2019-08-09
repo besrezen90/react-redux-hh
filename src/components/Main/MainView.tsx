@@ -1,11 +1,11 @@
 import React from "react";
-import style from "./Home.less";
+import style from "./Main.less";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
 interface IProps {}
 
-const Home: React.FC<IProps> = props => {
+const Main: React.FC<IProps> = props => {
   return (
     <div className={style.main}>
       <Header />
@@ -15,4 +15,4 @@ const Home: React.FC<IProps> = props => {
   );
 };
 
-export default Home;
+export default Main;
