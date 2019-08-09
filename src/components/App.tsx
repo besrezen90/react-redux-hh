@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import style from './App.less';
-import Login from './Login/Login';
-import Home from './Home/Home';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import style from "./App.less";
+import Login from "./Login/Login";
+import Home from "./Home/HomeView";
 
 interface IProps {}
 interface IState {}
@@ -14,7 +14,7 @@ export default class App extends Component<IProps, IState> {
         <div className={style.app}>
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route exact path="/home" component={Home} />
+            <Route path="/home" component={Home} />
           </Switch>
         </div>
       </Router>

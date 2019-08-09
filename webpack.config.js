@@ -12,6 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist")
   },
   devServer: {
+    historyApiFallback: true,
     contentBase: path.resolve(__dirname, "dist"),
     port: 4200
   },

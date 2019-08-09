@@ -3,5 +3,5 @@ printWidth: 120
 tabWidht: 2
 # useTabs: true
 semi: true
-singleQuote: true
+singleQuote: false
 jsxBracketSameLine: true
