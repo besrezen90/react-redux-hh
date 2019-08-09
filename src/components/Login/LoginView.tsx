@@ -1,7 +1,7 @@
-import React from 'react';
-import style from './Login.less';
-import { IUser } from '../../types';
-import { RouteComponentProps, Redirect } from 'react-router-dom';
+import React from "react";
+import { RouteComponentProps, Redirect } from "react-router-dom";
+import style from "./Login.less";
+import { IUser } from "../../types";
 
 interface IProps {
   user: IUser;
