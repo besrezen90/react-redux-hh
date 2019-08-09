@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import style from "./App.less";
 import Login from "./Login/Login";
-import Home from "./Home/HomeView";
+import Home from "./Main/MainView";
 
 interface IProps {}
 interface IState {}
