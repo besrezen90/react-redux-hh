@@ -2,6 +2,8 @@ import React from "react";
 import { RouteComponentProps, Redirect } from "react-router-dom";
 import style from "./Login.less";
 import { IUser } from "../../types";
+import Button from "../../ui/Button/Button";
+import Input from "../../ui/Input/Input";
 
 interface IProps {
   user: IUser;
@@ -22,11 +24,9 @@ export const LoginView: React.FC<IProps & RouteComponentProps> = ({ user, onLogi
     <Redirect to="/home" />
   ) : (
     <div className={style.login}>
-      <input ref={login} className={style.input} type="text" name="login" placeholder="Введите логин" />
-      <input ref={password} className={style.input} type="password" name="password" placeholder="Введите пароль" />
-      <button className={style.button} onClick={onClick}>
-        Войти
-      </button>
+      <Input ref={login} type="text" name="login" placeholder="Введите логин" />
+      <Input ref={password} type="password" name="password" placeholder="Введите пароль" />
+      <Button text="Войти" onClick={onClick} />
     </div>
   );
 };

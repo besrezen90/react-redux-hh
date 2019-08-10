@@ -2,17 +2,20 @@ import React from "react";
 import style from "./Main.less";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { IFilter } from "../../types";
+import SearchBlock from "../SearchBlock/SearchBlock";
 
-interface IProps {}
+interface IProps {
+  filter: IFilter;
+  onChangeText: (filter: IFilter) => void;
+}
 
-const Main: React.FC<IProps> = props => {
+export const MainView: React.FC<IProps> = ({ filter, onChangeText }) => {
   return (
     <div className={style.main}>
       <Header />
-      главная страница
+      <SearchBlock filter={filter} onChange={onChangeText} />
       <Footer />
     </div>
   );
 };
-
-export default Main;
