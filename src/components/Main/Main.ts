@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { MainView } from "./MainView";
-import { onChangeText } from "../../actions";
+import { onChangeText, onFetchData } from "../../actions";
 import { IFilter, IVacancy } from "../../types";
 
 const mapStateToProps = (state: { filter: IFilter; vacancys: Array<IVacancy> }) => ({
@@ -10,5 +10,5 @@ const mapStateToProps = (state: { filter: IFilter; vacancys: Array<IVacancy> }) 
 
 export default connect(
   mapStateToProps,
-  { onChangeText }
+  { onChangeText, onFetchData }
 )(MainView);
