@@ -7,30 +7,36 @@ export interface IFilter {
   text?: string;
 }
 
-// https://api.hh.ru/vacancies?text="frontend"
+export interface IArea {
+  id: string;
+  name: string;
+}
+
+export interface ISalary {
+  from?: number;
+  to?: number;
+  currency?: "RUR" | "EUR" | "USD";
+}
+
+export interface IEmployer {
+  id: string;
+  name: string;
+  logo_urls?: {
+    90?: string;
+  };
+}
+
+export interface ISnippet {
+  requirement: string;
+  responsibility: string;
+}
 
 export interface IVacancy {
   id: string;
   name: string;
-  area: {
-    id: string;
-    name: string;
-  };
-  salary?: {
-    from?: number;
-    to?: number;
-    currency?: "RUR";
-  };
-  employer: {
-    id: string;
-    name: string;
-    logo_urls?: {
-      90?: string;
-    };
-  };
+  area: IArea;
+  salary?: ISalary;
+  employer: IEmployer;
   published_at: string;
-  snippet: {
-    requirement: string;
-    responsibility: string;
-  };
+  snippet: ISnippet;
 }
