@@ -2,12 +2,9 @@
   "name": "react-redux-hh",
   "version": "0.0.1",
   "description": "",
-  "homepage": "https://besrezen90.github.io/react-redux-hh/",
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "build": "webpack --mode production"
   },
   "keywords": [
     "react",
@@ -65,7 +62,6 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
