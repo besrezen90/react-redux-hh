@@ -16,10 +16,10 @@ export interface IVacancy {
     id: string;
     name: string;
   };
-  salaty?: {
+  salary?: {
     from?: number;
     to?: number;
-    currency?: number;
+    currency?: "RUR";
   };
   employer: {
     id: string;
