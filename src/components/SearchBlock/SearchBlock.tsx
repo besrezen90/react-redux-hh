@@ -8,7 +8,7 @@ import { IFilter } from "../../types";
 interface IProps {
   filter: IFilter;
   onChange: (filter: IFilter) => void;
-  onFetchData: (filter: IFilter) => Promise<void>;
+  onFetchData: () => void;
 }
 
 const SearchBlock: React.FC<IProps> = ({ filter, onChange, onFetchData }) => {
@@ -22,7 +22,7 @@ const SearchBlock: React.FC<IProps> = ({ filter, onChange, onFetchData }) => {
         placeholder="Введите название вакансии"
         onChange={() => onChange({ text: vacancyName.current.value })}
       />
-      <Button text="Найти" onClick={() => onFetchData(filter)} />
+      <Button text="Найти" onClick={onFetchData} />
     </React.Fragment>
   );
 };

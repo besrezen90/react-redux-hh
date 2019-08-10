@@ -8,7 +8,7 @@ interface IProps {
   classNames?: string;
   ref?: React.RefObject<HTMLInputElement>;
   value?: string;
-  onChange: () => void;
+  onChange?: () => void;
 }
 
 const Input: React.FC<IProps> = React.forwardRef(

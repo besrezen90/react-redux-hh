@@ -7,6 +7,19 @@ export interface IFilter {
   text?: string;
 }
 
+export interface IPagination {
+  pages?: number;
+  per_page: number;
+  page: number;
+}
+
+export interface IApiResponse {
+  items: Array<IVacancy>;
+  pages: number;
+  per_page: number;
+  page: number;
+}
+
 export interface IArea {
   id: string;
   name: string;

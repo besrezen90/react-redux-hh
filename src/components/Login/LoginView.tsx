@@ -4,6 +4,7 @@ import style from "./Login.less";
 import { IUser } from "../../types";
 import Button from "../../ui/Button/Button";
 import Input from "../../ui/Input/Input";
+import { setUserToSession } from "../../util/helper";
 
 interface IProps {
   user: IUser;
@@ -11,12 +12,15 @@ interface IProps {
 }
 
 export const LoginView: React.FC<IProps & RouteComponentProps> = ({ user, onLogin }) => {
-  const login = React.createRef<HTMLInputElement>();
-  const password = React.createRef<HTMLInputElement>();
+  const loginInput = React.createRef<HTMLInputElement>();
+  const passwordInput = React.createRef<HTMLInputElement>();
 
   const onClick = () => {
-    if (login.current.value && password.current.value) {
-      onLogin({ login: login.current.value, password: password.current.value });
+    const login = loginInput.current.value;
+    const password = passwordInput.current.value;
+    if (login && password) {
+      setUserToSession({ login, password });
+      onLogin({ login, password });
     }
   };
 
@@ -24,8 +28,8 @@ export const LoginView: React.FC<IProps & RouteComponentProps> = ({ user, onLogi
     <Redirect to="/home" />
   ) : (
     <div className={style.login}>
-      <Input ref={login} type="text" name="login" placeholder="Введите логин" />
-      <Input ref={password} type="password" name="password" placeholder="Введите пароль" />
+      <Input ref={loginInput} type="text" name="login" placeholder="Введите логин" />
+      <Input ref={passwordInput} type="password" name="password" placeholder="Введите пароль" />
       <Button text="Войти" onClick={onClick} />
     </div>
   );
